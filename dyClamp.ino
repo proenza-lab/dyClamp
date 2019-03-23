@@ -1,5 +1,5 @@
 /*
-dyClamp (dynamic clamp sketch for pyClamp interface)
+dyClamp (dynamic clamp sketch for the pyClamp interface)
 Copyright (C) 2019 Christian Rickert <mail@crickert.de>
 
 This program is free software; you can redistribute it and/or
@@ -9,8 +9,8 @@ of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
@@ -47,16 +47,16 @@ float mvolts = 0.0;				// membrane potential [mV]
 /* extend this list to add calibration parameters,
    use decrementing negative indices to address elements */
 float calibras[] = 	{50.0,		// Amplifier input gain (AMP_i) [mV/mV]
-				  	 400.0,		// Amplifier output gain (AMP_o) [pA/V]
-				  	 5.5,		// ADC input slope (ADC_m) [mV/1]
-				  	 -11500.0,	// ADC input intercept (ADC_n) [mV]
-				  	 750.0,		// DAC output slope (DAC_m) [1/pA]
-				  	 2000.0,	// DAC output intercept (DAC_n) [0-4095]
-				  	 0.0};		// Voltage offset (VLT_d) [mV]
+					 400.0,		// Amplifier output gain (AMP_o) [pA/V]
+					 5.5,		// ADC input slope (ADC_m) [mV/1]
+					 -11500.0,	// ADC input intercept (ADC_n) [mV]
+					 750.0,		// DAC output slope (DAC_m) [1/pA]
+					 2000.0,	// DAC output intercept (DAC_n) [0-4095]
+					 0.0};		// Voltage offset (VLT_d) [mV]
 
 /* extend this list to add conductance parameters,
    use incrementing postive indices to address elements */
-float conducts[] = 	{0.0,  		// G_Shunt [nS]
+float conducts[] = 	{0.0,		// G_Shunt [nS]
 					 0.0,		// G_H [nS]
 					 0.0,		// G_Na [nS]
 					 0.0,		// OU1_m [nS]
@@ -71,7 +71,7 @@ float values[] =	{0.0,		// mvolts [mV]
 					 0.0};		// msecs [µs]
 
 elapsedMicros stepTime = 0;		// individual cycle time [µs]
-elapsedMillis cmdTime = 0;  	// time since alst command check [ms]
+elapsedMillis cmdTime = 0;		// time since alst command check [ms]
 elapsedMillis ttlTime = 0;		// time since last TTL trigger [ms]
 
 /* serial command strings are identified by their specific format:
@@ -81,7 +81,7 @@ elapsedMillis ttlTime = 0;		// time since last TTL trigger [ms]
    	index:	int
    			{-inf, ..., -1} = calibras[+inf-1, ..., +0]
 			{0}				= execute a command
-   			{+1, ..., +inf}	= conducts[ 0, ...,  inf-1]
+   			{+1, ..., +inf}	= conducts[ 0, ..., inf-1]
 	value:	float
 			the value written into the specified array and position or
 			the command to be executed from a switch...case structure
@@ -89,7 +89,7 @@ elapsedMillis ttlTime = 0;		// time since last TTL trigger [ms]
 	Examples:
 
 	<\r> -2 <\t> 2000.0 <\n>	changes the second parameter (Amp_o) to 2000.0
-	<\r>  0 <\t>    2.0 <\n>  	toggles live reports on or off
+	<\r>  0 <\t>    2.0 <\n> 	toggles live reports on or off
 	<\r>  1 <\t>   10.0 <\n>	changes the first conductance (G_Shunt) to 10.0 */
 
 /* custom struct for serial communication */
@@ -100,7 +100,7 @@ typedef struct serialCmd {
 	float val = 0.0;
 	String str = "";
 } command;
-command cmd;  					// serial command string struct
+command cmd;					// serial command string struct
 
 // constants
 const int adcPin = 0;			// analog in pin identifier
@@ -187,7 +187,7 @@ void writeString(String str) {
 	Serial.print(str);
 }
 
-/* returns an inverted boolean value  */
+/* returns an inverted boolean value */
 bool invertBoolean(bool boo) {
 	if (boo) {
 		boo = false;
@@ -208,7 +208,7 @@ bool invertBoolean(bool boo) {
 	<\r> 1.23 <\t> 1337 <\n>	reports two values, which are identified
 								by their order in the transmission string */
 
-/*creates a new  command/report string from an array of values */
+/*creates a new command/report string from an array of values */
 String newString(float vals[], int len) {
 	static const String cr = '\r';
 	static const String tb = '\t';
@@ -257,7 +257,7 @@ void setup(){
 	pinMode(ttlPin, INPUT);		// set to high-impedance state
 
 	// pre-calculate lookup tables
-	GenerateGaussianNumbers();	// Gaussian number pool for use by the OU processes  
+	GenerateGaussianNumbers();	// Gaussian number pool for use by the OU processes
 	GenerateSodiumLUT();		// sodium activation/inactivation
  	GenerateHcnLUT();			// HCN activation
 
@@ -268,7 +268,7 @@ void setup(){
 
 	// read membrane potential (slow, ~8.0µs)
  	adcs = float(analogRead(adcPin));
- 	mvolts = calibras[2] / calibras[0] * adcs  + calibras[3] / calibras[0] + calibras[6];
+ 	mvolts = calibras[2] / calibras[0] * adcs + calibras[3] / calibras[0] + calibras[6];
 
 	// calculate cycle interval
  	msecs = 0.001 * float(stepTime);
@@ -288,7 +288,7 @@ void setup(){
 	// add Sodium current (fast, < 0.5µs)
 	if (conducts[2] > 0) {
 		pamps += Sodium(mvolts);
-	}  
+	}
 	
 	// add OrnsteinUhlenbeck current (medium, ~1.5µs)
 	if (conducts[3] > 0 || conducts[5] > 0) {
