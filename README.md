@@ -1,2 +1,2 @@
 # dyClamp
-A fast, microcontroller-based dynamic clamp system
+A fast dynamic clamp sketch for the pyClamp interface
