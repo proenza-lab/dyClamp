@@ -46,7 +46,7 @@ float mvolts = 0.0;				// membrane potential [mV]
 
 /* extend this list to add calibration parameters,
    use decrementing negative indices to address elements */
-float calibras[] = 	{50.0,		// Amplifier input gain (AMP_i) [mV/mV]
+float calibras[] =	{50.0,		// Amplifier input gain (AMP_i) [mV/mV]
 					 400.0,		// Amplifier output gain (AMP_o) [pA/V]
 					 5.5,		// ADC input slope (ADC_m) [mV/1]
 					 -11500.0,	// ADC input intercept (ADC_n) [mV]
@@ -56,7 +56,7 @@ float calibras[] = 	{50.0,		// Amplifier input gain (AMP_i) [mV/mV]
 
 /* extend this list to add conductance parameters,
    use incrementing postive indices to address elements */
-float conducts[] = 	{0.0,		// G_Shunt [nS]
+float conducts[] =	{0.0,		// G_Shunt [nS]
 					 0.0,		// G_H [nS]
 					 0.0,		// G_Na [nS]
 					 0.0,		// OU1_m [nS]
@@ -76,12 +76,12 @@ elapsedMillis ttlTime = 0;		// time since last TTL trigger [ms]
 
 /* serial command strings are identified by their specific format:
 
-   	<\r> idx <\t> val <\n>
-   	
-   	index:	int
-   			{-inf, ..., -1} = calibras[+inf-1, ..., +0]
+	<\r> idx <\t> val <\n>
+	
+	index:	int
+			{-inf, ..., -1} = calibras[+inf-1, ..., +0]
 			{0}				= execute a command
-   			{+1, ..., +inf}	= conducts[ 0, ..., inf-1]
+			{+1, ..., +inf}	= conducts[ 0, ..., inf-1]
 	value:	float
 			the value written into the specified array and position or
 			the command to be executed from a switch...case structure
@@ -127,15 +127,15 @@ void interpretString(command cmd) {
 	if (cmd.str.startsWith('\r') && cmd.sep != -1) {  // check format
 		cmd.len = cmd.str.length();
 		cmd.idx = cmd.str.substring(1,cmd.sep).toInt();
-		if (cmd.idx < 0) {  // negative index, update parameters
+		if (cmd.idx < 0) {			// negative index, update parameters
 			cmd.idx = -1 * cmd.idx - 1;
 			cmd.val = cmd.str.substring(cmd.sep + 1, cmd.len).toFloat();
 			setParameter(cmd.idx, cmd.val);
-		} else if (cmd.idx > 0) {  // positive index, update conductances
+		} else if (cmd.idx > 0) {	// positive index, update conductances
 			cmd.idx = cmd.idx - 1;
 			cmd.val = cmd.str.substring(cmd.sep + 1, cmd.len).toFloat();
 			setConductance(cmd.idx, cmd.val);
-		} else {  // zero index, execute command instead
+		} else {					// zero index, execute command instead
 			cmd.val = cmd.str.substring(cmd.sep + 1, cmd.len).toInt();
 			runCommand(cmd.val);
 		}
@@ -151,18 +151,18 @@ void readString() {
 void runCommand(int exec) {
 	static bool troper = false;  // remember previous live report state
 	troper = report;
-	if (report)  // temporarily turn off live reports
+	if (report)		// temporarily turn off live reports
 		report = false;
 	switch (exec) {
-		case 0:  // echo test, nothing to do
+		case 0:		// echo test, nothing to do
 			break;
-		case 1:  // send calibration parameters and conductance values
+		case 1:		// send calibration parameters and conductance values
 			writeString(packLists(2));
 			break;
-		case 2: // toggle live reports on or off
+		case 2:		// toggle live reports on or off
 			report = invertBoolean(troper);
 			break;
-		default:  // every other (undefined) command
+		default:	// every other (undefined) command
 			break;
 	}
 	if (exec != 2)  // return to previous live report state
@@ -198,10 +198,10 @@ bool invertBoolean(bool boo) {
 }
 
 /* serial transmission strings are identified by their specific order:
-   	
-   	<\r> vals[0] <\t> vals[1] (<\t> vals[2] ... <\t> vals[inf] ) <\n>
-   	
-   	values:	float[]
+	
+	<\r> vals[0] <\t> vals[1] (<\t> vals[2] ... <\t> vals[inf] ) <\n>
+	
+	values:	float[]
 	
 	Examples:
 
@@ -259,7 +259,7 @@ void setup(){
 	// pre-calculate lookup tables
 	GenerateGaussianNumbers();	// Gaussian number pool for use by the OU processes
 	GenerateSodiumLUT();		// sodium activation/inactivation
- 	GenerateHcnLUT();			// HCN activation
+	GenerateHcnLUT();			// HCN activation
 
  }
 
@@ -267,20 +267,20 @@ void setup(){
  void loop() {
 
 	// read membrane potential (slow, ~8.0µs)
- 	adcs = float(analogRead(adcPin));
- 	mvolts = calibras[2] / calibras[0] * adcs + calibras[3] / calibras[0] + calibras[6];
+	adcs = float(analogRead(adcPin));
+	mvolts = calibras[2] / calibras[0] * adcs + calibras[3] / calibras[0] + calibras[6];
 
 	// calculate cycle interval
- 	msecs = 0.001 * float(stepTime);
- 	stepTime = 0;
+	msecs = 0.001 * float(stepTime);
+	stepTime = 0;
 
 	// reset current
- 	pamps = 0.0;
+	pamps = 0.0;
 
 	// add Shunting current (fast, < 0.5µs)
- 	if (conducts[0] > 0) {
- 		pamps += Shunting(mvolts);
- 	}
+	if (conducts[0] > 0) {
+		pamps += Shunting(mvolts);
+	}
 
 	// add HCN current (fast, < 0.5µs)
 	pamps += HCN(mvolts, conducts[1]);  // reset current after initial run
@@ -305,13 +305,13 @@ void setup(){
 	}
 
 	// write calculated current (fast, ~0.5µs)
-	dacs = int(calibras[4] / calibras[1] * pamps  + calibras[5]);
+	dacs = int(calibras[4] / calibras[1] * pamps + calibras[5]);
 	dacs = constrain(dacs, 0, 4095);	// keep constrain function simple
 	analogWrite(dacPin, dacs);
 
 	// update commands & report values
 	if (cmdTime > cmdIntvl) {
-		if (Serial.available() > 4) { 	// read buffer not empty
+		if (Serial.available() > 4) {	// read buffer not empty
 			readString();
 			writeString(cmd.str);
 			interpretString(cmd);
