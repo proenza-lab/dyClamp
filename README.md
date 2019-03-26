@@ -36,7 +36,9 @@ The Teensy will interpret information strings ("commands") from the controlling 
 
 - All command indices with a value of zero are interpreted as execution commands, with the second value indicating the exact type of command.
 ```
-// This command does nothing itself, except that it produces an echo to the host - like all commands. However, this command can be used to "ping" the device when establishing a new connection. It is the first command in a switch...case structure of pre-defined commands.
+// This command does nothing itself, except that it produces an echo to the host - like all commands.
+// However, this command can be used to "ping" the device when establishing a new connection.
+// It is the first command in a switch...case structure of pre-defined commands.
 <cr> 0.0 <tab> 0.0 <lf>
 ```
 
