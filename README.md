@@ -2,7 +2,9 @@
 ## A fast dynamic clamp sketch for the pyClamp interface
 
 
-**dyClamp** is a reimplementation of [dynamic_clamp](https://github.com/nsdesai/dynamic_clamp) with a focus on a robust serial communication between the Teensy and its controlling host: The current implementation allows scientists to alter the behavior of the dynamic clamp system at runtime - by transmitting updates for calibration parameters, conductance values or by triggering custom events. Furthermore, the low-latency design of [Teensyduino USB Serial Communication](https://www.pjrc.com/teensy/td_serial.html) enables a contiuous flow of information from and to the host - with a minimal effect on the cycle times of the dynamic clamp system.
+**[dyClamp](https://github.com/christianrickert/dyClamp/)** is a reimplementation of [dynamic_clamp](https://github.com/nsdesai/dynamic_clamp) with a focus on a robust serial communication between the Teensy and its controlling host computer: The current implementation allows scientists to alter the behavior of the dynamic clamp system at runtime - by transmitting updates for calibration parameters, conductance values or by triggering custom events. Furthermore, the low-latency design of [Teensyduino USB Serial Communication](https://www.pjrc.com/teensy/td_serial.html) enables a contiuous flow of information from and to the host - with a minimal effect on the cycle times of the dynamic clamp system.
+
+The **[pyClamp](https://github.com/christianrickert/pyClamp)** interface is a feature-complete software demonstrating the flexibility of this novel dynamic clamp implementation.
 
 ![Screenshot](https://github.com/christianrickert/dyClamp/blob/master/dyClamp.png)
 
@@ -70,3 +72,21 @@ In order to reduce information overhead and therefore transmission latency, the 
 Furthermore, the present implementation temporarily discontinues the generation of live reports when a new command string has arrived at its input buffer. This behaviour avoids interpretation conflicts on the host side (i.e. a command string echo being interpreted as a live report with two values).
 
 In addition to the serial communication tweaks mentioned above, **dyClamp** is dynamically throttling its generation of live reports based on the availability of the serial output buffer. While this behaviour does not guarantee a prompt transmission to the host sytem, it makes sure that data generation is synchronous with data representation.
+
+### Deployment & Optimization
+
+If you want to use **dyClamp** in your dynamic clamp setup, you'll need recent versions of [Arduino](https://www.arduino.cc/en/Main/Software) and [Teensyduino](https://www.pjrc.com/teensy/td_download.html):
+
+- Arduino      (>= 1.8.8)
+- Teensyduino  (>= 1.4.5)
+
+When compiling and uploading the present sketch to your Teensy, make sure to optimize Arduino's settings and compilation parameters in order to enable the serial connection and to improve the computational performance of your dynamic clamp setup.
+The settings in Arduino's "Tools" menu should be set to the following values:
+
+- Board:       "Teensy 3.6"
+- USB Type:    "Serial"
+- CPU Speed:   "180 MHz"
+- Optimize:    "Faster with LTO"
+- Port:        "COMx (Teensy)"
+
+Using these settings, **[dyClamp](https://github.com/christianrickert/dyClamp/)** completes its cycle of voltage readout, current calculation, and current injection usually in 10 µs or less - while simultaneously responding to serial commands from the controlling host without interruptions.
