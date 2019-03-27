@@ -36,10 +36,17 @@ The Teensy will interpret information strings ("commands") from the controlling 
 
 - All command indices with a value of zero are interpreted as execution commands, with the second value indicating the exact type of command.
 ```
-// This command does nothing itself, except that it produces an echo to the host - like all commands.
-// However, this command can be used to "ping" the device when establishing a new connection.
-// It is the first command in a switch...case structure of pre-defined commands.
+/* This command does nothing itself, except that it produces an echo to the host - see below.
+   However, this command can be used to "ping" the device when establishing a new connection. */
 <cr> 0.0 <tab> 0.0 <lf>
+
+/* Sends calibration parameters and conductance values to the host.
+   These values can be interpreted by the host to confirm a successful transmission. */
+<cr> 0.0 <tab> 1.0 <lf>
+
+/* Toggles live reports of selected values on/off that are sent to the host continuously.
+   The data stream can contain an arbitrary number of values for monitoring. */
+<cr> 0.0 <tab> 2.0 <lf>
 ```
 
 All command strings are echoed to the controlling host to indicate a successful transmission of the command.
@@ -50,7 +57,8 @@ Besideds the just mentioned echo of a command string, the Teensy can provide a c
 
 Example:
 ```
-// This command toggles the live report of an array of pre-defined values on or off. It is the third type of command (counting starts at zero) in a switch...case structure of pre-defined commands.
+/* Toggles live reports of selected values on/off that are sent to the host continuously.
+   The data stream can contain an arbitrary number of values for monitoring. */
 <cr> 0.0 <tab> 2.0 <lf>
 ```
 All command indices with value zero are interpreted as command switches, with the second value indicating the type of command.
