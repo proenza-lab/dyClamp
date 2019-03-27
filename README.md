@@ -6,7 +6,7 @@
 
 The **[pyClamp](https://github.com/christianrickert/pyClamp)** software is a feature-complete graphical user interface written in Python demonstrating the flexibility of this novel dynamic clamp implementation.
 
-![Screenshot](https://github.com/christianrickert/dyClamp/media/dyClamp.png)
+![Screenshot](https://github.com/christianrickert/dyClamp/blob/master/media/dyClamp.png)
 
 ## Serial communication
 
