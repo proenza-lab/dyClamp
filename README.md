@@ -26,13 +26,13 @@ The Teensy will interpret information strings ("commands") from the controlling 
 
 - All positive command indices are indicating update commands for the array of calibration parameters.
 ```
-// This command changes the first value (at index 0) of the array of calibration parameters to "1.234".
+/* This command changes the first value (at index 0) of the array of calibration parameters to "1.234". */
 <cr> 1.0 <tab> 1.234 <lf>
 ```
 
 - All negative command indices are indicating update commands for the array of coductance values.
 ```
-// This command changes the third value (at index 2) of the array of coductance values to "5.678".
+/* This command changes the third value (at index 2) of the array of coductance values to "5.678". */
 <cr> -3.0 <tab> 5.678 <lf>
 ```
 
