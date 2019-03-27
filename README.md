@@ -73,15 +73,14 @@ Furthermore, the present implementation temporarily discontinues the generation 
 
 In addition to the serial communication tweaks mentioned above, **dyClamp** is dynamically throttling its generation of live reports based on the availability of the serial output buffer. While this behaviour does not guarantee a prompt transmission to the host sytem, it makes sure that data generation is synchronous with data representation.
 
-### Deployment & Optimization
+## Deployment & Optimization
 
-If you want to use **dyClamp** in your dynamic clamp setup, you'll need recent versions of [Arduino](https://www.arduino.cc/en/Main/Software) and [Teensyduino](https://www.pjrc.com/teensy/td_download.html):
+If you want to use **dyClamp** in your dynamic clamp setup, you'll need recent versions of [Arduino](https://www.arduino.cc/en/Main/Software) and [Teensyduino](https://www.pjrc.com/teensy/td_download.html) to compile and upload the present sketch to your Teensy:
 
 - Arduino      (>= 1.8.8)
 - Teensyduino  (>= 1.4.5)
 
-When compiling and uploading the present sketch to your Teensy, make sure to optimize Arduino's settings and compilation parameters in order to enable the serial connection and to improve the computational performance of your dynamic clamp setup.
-The settings in Arduino's "Tools" menu should be set to the following values:
+Make sure to optimize Arduino's settings and compilation parameters in order to enable the serial connection and to improve the computational performance of your dynamic clamp setup. The settings in Arduino's "Tools" menu should be set to the following values:
 
 - Board:       "Teensy 3.6"
 - USB Type:    "Serial"
@@ -89,4 +88,11 @@ The settings in Arduino's "Tools" menu should be set to the following values:
 - Optimize:    "Faster with LTO"
 - Port:        "COMx (Teensy)"
 
-Using these settings, **[dyClamp](https://github.com/christianrickert/dyClamp/)** completes its cycle of voltage readout, current calculation, and current injection usually in 10 µs or less - while simultaneously responding to serial commands from the controlling host without interruptions.
+Depending on your current model, **[dyClamp](https://github.com/christianrickert/dyClamp/)** usually completes its cycles of voltage readout, current calculation, and current injection usually in 10 µs or less - while simultaneously responding to serial commands from the controlling host.
+
+## Development & Bug Reports
+
+If you would like to participate in the development, please [fork this repository](https://help.github.com/articles/fork-a-repo) to your GitHub account. In order to report a problem, please login to your GitHub account and create a [new issue](https://help.github.com/articles/creating-an-issue/) in this repository.
+
+Your feedback is welcome! Please contact me at [GitHub](https://github.com/christianrickert/) or via [e-mail](mailto:mail@crickert.de).
+
