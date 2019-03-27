@@ -71,7 +71,7 @@ In order to reduce information overhead and therefore transmission latency, the 
 
 Furthermore, the present implementation temporarily discontinues the generation of live reports when a new command string has arrived at its input buffer. This behaviour avoids interpretation conflicts on the host side (i.e. a command string echo being interpreted as a live report with two values).
 
-In addition to the serial communication tweaks mentioned above, **dyClamp** is dynamically throttling its generation of live reports based on the availability of the serial output buffer. While this behaviour does not guarantee a prompt transmission to the host sytem, it makes sure that data generation is synchronous with data representation.
+In addition to the serial communication tweaks mentioned above, **[dyClamp](https://github.com/christianrickert/dyClamp/)** is dynamically throttling its generation of live reports based on the availability of the serial output buffer. While this behaviour does not guarantee a prompt transmission to the host sytem, it makes sure that data generation is synchronous with data representation.
 
 ## Deployment & Optimization
 
