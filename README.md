@@ -92,6 +92,10 @@ Make sure to optimize Arduino's settings and compilation parameters in order to 
 
 Depending on the computational costs of your current simulations, **[dyClamp](https://github.com/christianrickert/dyClamp/)** usually completes its cycles of voltage readout, current calculation, and current injection ("cycle time") in 10 µs or less - while at the same time enabling serial communication from and to the controlling host.
 
+## Acknowledgements
+
+I would like to thank Niraj Desai @nsdesai and Andrew Scallon @OptogeneticsandNeuralEngineeringCore for the initial [dynamic_clamp](https://github.com/nsdesai/dynamic_clamp) system and the [customized version](https://optogeneticsandneuralengineeringcore.gitlab.io/ONECoreSite/projects/DynamicClamp/) currently used in the [Proenza laboratory](http://www.ucdenver.edu/academics/colleges/medicalschool/departments/physiology/faculty/Pages/Proenza.aspx), respectively.
+
 ## Development & Bug reports
 
 If you would like to participate in the development, please [fork this repository](https://help.github.com/articles/fork-a-repo) to your GitHub account. In order to report a problem, please create a [new issue](https://help.github.com/articles/creating-an-issue/) in this repository.
