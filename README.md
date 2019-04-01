@@ -2,7 +2,7 @@
 
 ## A fast dynamic clamp sketch for the [pyClamp](https://github.com/christianrickert/pyClamp) interface
 
-**[dyClamp](https://github.com/christianrickert/dyClamp/)** is a further development of the [dynamic_clamp](https://github.com/nsdesai/dynamic_clamp) sketch with a focus on a robust serial communication between the Teensy and its controlling host computer: The current implementation allows scientists to alter the behavior of the dynamic clamp system at runtime - by transmitting updates for calibration parameters, conductance values or by triggering custom events. Furthermore, the low-latency design of [Teensyduino USB Serial Communication](https://www.pjrc.com/teensy/td_serial.html) enables a contiuous flow of information from and to the host - with a minimal effect on the cycle times of the dynamic clamp system.
+**[dyClamp](https://github.com/christianrickert/dyClamp/)** is a further development of the [dynamic_clamp](https://github.com/nsdesai/dynamic_clamp) sketch with a focus on a robust serial communication between the Teensy and its controlling host computer: The current implementation allows scientists to alter the behavior of the dynamic clamp system at runtime - by transmitting updates for calibration parameters, conductance values or by triggering custom events. Furthermore, the low-latency design of [Teensyduino USB Serial Communication](https://www.pjrc.com/teensy/td_serial.html) enables a continuous flow of information from and to the host - with a minimal effect on the cycle times of the dynamic clamp system.
 
 **_Cross-reference_:** **[pyClamp](https://github.com/christianrickert/pyClamp)** is a feature-complete graphical user interface written in Python to demonstrate the flexibility of this novel dynamic clamp implementation.
 
@@ -19,7 +19,7 @@ Example:
 <cr> value1 <tab> value2 <tab> value3 <lf>
 ```
 
-Arduinos use [floating-point numbers](https://www.arduino.cc/reference/en/language/variables/data-types/float/) to represent decimal values internally - with up to seven digits of precision. However, the serial communication with UTF-8 encoding limits the precision of transfered values to two decimal digits. If you need to transmit values with a maximum precision, communicate those values as [integers](https://www.arduino.cc/reference/en/language/variables/data-types/int/) instead and divide them by the appropriate decimal power after the transfer.
+Arduinos use [floating-point numbers](https://www.arduino.cc/reference/en/language/variables/data-types/float/) to represent decimal values internally - with up to seven digits of precision. However, the serial communication with UTF-8 encoding limits the precision of transferred values to two decimal digits. If you need to transmit values with a maximum precision, communicate those values as [integers](https://www.arduino.cc/reference/en/language/variables/data-types/int/) instead and divide them by the appropriate decimal power after the transfer.
 
 ### Serial command input
 
@@ -31,9 +31,9 @@ The Teensy will interpret information strings ("commands") from the controlling 
 <cr> 1.0 <tab> 1.23 <lf>
 ```
 
-- All negative command indices are indicating update commands for the array of coductance values.
+- All negative command indices are indicating update commands for the array of conductance values.
 ```
-/* This command changes the third value (at index 2) of the array of coductance values to "5.67". */
+/* This command changes the third value (at index 2) of the array of conductance values to "5.67". */
 <cr> -3.0 <tab> 5.67 <lf>
 ```
 
@@ -71,9 +71,9 @@ The transmitted data can be useful to observe parameters during experiments or t
 
 In order to reduce information overhead and therefore transmission latency, the information in the report strings is encoded positionally - in contrast to the command strings that use indices for the update of individual values.
 
-Furthermore, the present implementation temporarily discontinues the generation of live reports when a new command string has arrived at its input buffer. This behaviour avoids interpretation conflicts on the host side (i.e. a command string echo being interpreted as a live report with two values).
+Furthermore, the present implementation temporarily discontinues the generation of live reports when a new command string has arrived at its input buffer. This behavior avoids interpretation conflicts on the host side (i.e. a command string echo being interpreted as a live report with two values).
 
-In addition to the serial communication tweaks mentioned above, **[dyClamp](https://github.com/christianrickert/dyClamp/)** is dynamically throttling its generation of live reports based on the availability of the serial output buffer. While this behaviour does not guarantee a prompt transmission to the host sytem, it makes sure that data generation is synchronous with data representation.
+In addition to the serial communication tweaks mentioned above, **[dyClamp](https://github.com/christianrickert/dyClamp/)** is dynamically throttling its generation of live reports based on the availability of the serial output buffer. While this behavior does not guarantee a prompt transmission to the host system, it makes sure that data generation is synchronous with data representation.
 
 ## Deployment & Optimization
 
