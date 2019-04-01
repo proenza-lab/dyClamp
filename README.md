@@ -19,6 +19,8 @@ Example:
 <cr> value1 <tab> value2 <tab> value3 <lf>
 ```
 
+Arduinos use [floating-point numbers](https://www.arduino.cc/reference/en/language/variables/data-types/float/) to represent decimal values internally - with up to seven digits of precision. However, the serial communication with UTF-8 encoding limits the precision of transfered values to two decimal digits. If you need to transmit values with a maximum precision, communicate those values as [integers](https://www.arduino.cc/reference/en/language/variables/data-types/int/) instead and divide them by the appropriate decimal power after the transfer.
+
 ### Serial command input
 
 The Teensy will interpret information strings ("commands") from the controlling host based on `value1` and `value2`. The first value (index) indicates the type of command, while the second value represents an updated value or a pre-defined command case (command subtype).
@@ -26,14 +28,14 @@ The Teensy will interpret information strings ("commands") from the controlling 
 
 - All positive command indices are indicating update commands for the array of calibration parameters.
 ```
-/* This command changes the first value (at index 0) of the array of calibration parameters to "1.234". */
-<cr> 1.0 <tab> 1.234 <lf>
+/* This command changes the first value (at index 0) of the array of calibration parameters to "1.23". */
+<cr> 1.0 <tab> 1.23 <lf>
 ```
 
 - All negative command indices are indicating update commands for the array of coductance values.
 ```
-/* This command changes the third value (at index 2) of the array of coductance values to "5.678". */
-<cr> -3.0 <tab> 5.678 <lf>
+/* This command changes the third value (at index 2) of the array of coductance values to "5.67". */
+<cr> -3.0 <tab> 5.67 <lf>
 ```
 
 - All command indices with a value of zero are generally interpreted as execution commands, with the second value indicating the subtype of the command.
