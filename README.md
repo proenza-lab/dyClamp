@@ -94,7 +94,7 @@ Depending on the computational costs of your current simulations, **[dyClamp](ht
 
 ## Acknowledgements
 
-I would like to thank Niraj Desai @nsdesai and Andrew Scallon @OptogeneticsandNeuralEngineeringCore for the initial [dynamic_clamp](https://github.com/nsdesai/dynamic_clamp) system and the [customized version](https://optogeneticsandneuralengineeringcore.gitlab.io/ONECoreSite/projects/DynamicClamp/) currently used in the [Proenza laboratory](http://www.ucdenver.edu/academics/colleges/medicalschool/departments/physiology/faculty/Pages/Proenza.aspx), respectively.
+I would like to thank Niraj Desai (@nsdesai) and Andrew Scallon (@OptogeneticsandNeuralEngineeringCore) for the initial [dynamic_clamp](http://dynamicclamp.com/construction/) system and the [customized version](https://optogeneticsandneuralengineeringcore.gitlab.io/ONECoreSite/projects/DynamicClamp/) currently used in the [Proenza laboratory](http://www.ucdenver.edu/academics/colleges/medicalschool/departments/physiology/faculty/Pages/Proenza.aspx), respectively.
 
 ## Development & Bug reports
 
