@@ -92,7 +92,7 @@ Make sure to optimize Arduino's settings and compilation parameters in order to 
 
 Depending on your current model, **[dyClamp](https://github.com/christianrickert/dyClamp/)** usually completes its cycles of voltage readout, current calculation, and current injection ("cycle time") in 10 µs or less - while at the same time enabling serial communication from and to the controlling host.
 
-## Development & Bug Reports
+## Development & Bug reports
 
 If you would like to participate in the development, please [fork this repository](https://help.github.com/articles/fork-a-repo) to your GitHub account. In order to report a problem, please create a [new issue](https://help.github.com/articles/creating-an-issue/) in this repository.
 
