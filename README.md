@@ -77,7 +77,7 @@ In addition to the serial communication tweaks mentioned above, **[dyClamp](http
 
 ## Deployment & Optimization
 
-If you want to use **dyClamp** in your dynamic clamp setup, you'll need recent versions of [Arduino](https://www.arduino.cc/en/Main/Software) and [Teensyduino](https://www.pjrc.com/teensy/td_download.html) to compile and upload the present sketch to your Teensy:
+If you want to use **dyClamp** in your dynamic clamp setup, you'll need recent versions of [Arduino](https://www.arduino.cc/en/Main/Software) and [Teensyduino](https://www.pjrc.com/teensy/td_download.html) to compile and upload the present sketch to your Teensy. These are my version recommendations:
 
 - Arduino      (>= 1.8.8)
 - Teensyduino  (>= 1.4.5)
