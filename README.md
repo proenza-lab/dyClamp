@@ -90,7 +90,7 @@ Make sure to optimize Arduino's settings and compilation parameters in order to 
 - Optimize:    "Faster with LTO"
 - Port:        "COMx (Teensy)"
 
-Depending on your current model, **[dyClamp](https://github.com/christianrickert/dyClamp/)** usually completes its cycles of voltage readout, current calculation, and current injection ("cycle time") in 10 µs or less - while at the same time enabling serial communication from and to the controlling host.
+Depending on the computational costs of your current simulations, **[dyClamp](https://github.com/christianrickert/dyClamp/)** usually completes its cycles of voltage readout, current calculation, and current injection ("cycle time") in 10 µs or less - while at the same time enabling serial communication from and to the controlling host.
 
 ## Development & Bug reports
 
