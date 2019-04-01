@@ -1,6 +1,6 @@
 # dyClamp
-## A fast dynamic clamp sketch for the [pyClamp](https://github.com/christianrickert/pyClamp) interface
 
+## A fast dynamic clamp sketch for the [pyClamp](https://github.com/christianrickert/pyClamp) interface
 
 **[dyClamp](https://github.com/christianrickert/dyClamp/)** is a reimplementation of [dynamic_clamp](https://github.com/nsdesai/dynamic_clamp) with a focus on a robust serial communication between the Teensy and its controlling host computer: The current implementation allows scientists to alter the behavior of the dynamic clamp system at runtime - by transmitting updates for calibration parameters, conductance values or by triggering custom events. Furthermore, the low-latency design of [Teensyduino USB Serial Communication](https://www.pjrc.com/teensy/td_serial.html) enables a contiuous flow of information from and to the host - with a minimal effect on the cycle times of the dynamic clamp system.
 
@@ -24,7 +24,6 @@ Arduinos use [floating-point numbers](https://www.arduino.cc/reference/en/langua
 ### Serial command input
 
 The Teensy will interpret information strings ("commands") from the controlling host based on `value1` and `value2`. The first value (index) indicates the type of command, while the second value represents an updated value or a pre-defined command case (command subtype).
-
 
 - All positive command indices are indicating update commands for the array of calibration parameters.
 ```
@@ -69,6 +68,7 @@ The transmitted data can be useful to observe parameters during experiments or t
 <cr> -65.4 <tab> 1.0 <tab> 9.0 <lf>
 ...
 ```
+
 In order to reduce information overhead and therefore transmission latency, the information in the report strings is encoded positionally - in contrast to the command strings that use indices for the update of individual values.
 
 Furthermore, the present implementation temporarily discontinues the generation of live reports when a new command string has arrived at its input buffer. This behaviour avoids interpretation conflicts on the host side (i.e. a command string echo being interpreted as a live report with two values).
@@ -97,4 +97,3 @@ Depending on your current model, **[dyClamp](https://github.com/christianrickert
 If you would like to participate in the development, please [fork this repository](https://help.github.com/articles/fork-a-repo) to your GitHub account. In order to report a problem, please create a [new issue](https://help.github.com/articles/creating-an-issue/) in this repository.
 
 Your feedback is welcome! Please contact me at [GitHub](https://github.com/christianrickert/) or via [e-mail](mailto:mail@crickert.de).
-
