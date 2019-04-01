@@ -48,7 +48,7 @@ float mvolts = 0.0;             // membrane potential [mV]
    use decrementing negative indices to address elements */
 float calibras[] =  {50.0,      // Amplifier input gain (AMP_i) [mV/mV]
                      400.0,     // Amplifier output gain (AMP_o) [pA/V]
-                     5.50,      // ADC input slope (ADC_m) [mV/1]
+                     5.5,       // ADC input slope (ADC_m) [mV/1]
                      -11500.0,  // ADC input intercept (ADC_n) [mV]
                      750.0,     // DAC output slope (DAC_m) [1/pA]
                      2000.0,    // DAC output intercept (DAC_n) [0-4095]
