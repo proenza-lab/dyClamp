@@ -44,7 +44,7 @@ float pamps = 0.0;              // current output [pA]
 float msecs = 0.0;              // time past since last cycle (dt) [ms]
 float mvolts = 0.0;             // membrane potential [mV]
 
-/* extend this list to add calibration parameters,
+/* extend this array to add calibration parameters,
    use decrementing negative indices to address elements */
 float calibras[] =  {50.0,      // Amplifier input gain (AMP_i) [mV/mV]
                      400.0,     // Amplifier output gain (AMP_o) [pA/V]
@@ -54,7 +54,7 @@ float calibras[] =  {50.0,      // Amplifier input gain (AMP_i) [mV/mV]
                      2000.0,    // DAC output intercept (DAC_n) [0-4095]
                      0.0};      // Voltage offset (VLT_d) [mV]
 
-/* extend this list to add conductance parameters,
+/* extend this array to add conductance parameters,
    use incrementing postive indices to address elements */
 float conducts[] =  {0.0,       // G_Shunt [nS]
                      0.0,       // G_H [nS]
@@ -65,7 +65,7 @@ float conducts[] =  {0.0,       // G_Shunt [nS]
                      0.0,       // OU2_D [nS^2/ms]
                      0.0};      // G_EPSC [nS]
 
-/* extend this list to add values for live reports */
+/* extend this array to add values for live reports */
 float values[] =    {0.0,       // mvolts [mV]
                      0.0,       // pamps [pA]
                      0.0};      // msecs [µs]
