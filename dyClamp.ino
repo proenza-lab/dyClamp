@@ -307,7 +307,7 @@ void setup(){
     }
 
     // write calculated current (fast, ~0.5µs)
-    dacs = int(calibras[4] / calibras[1] * pamps + calibras[5]);
+    dacs = int(calibras[4] / calibras[1] * pamps + calibras[5]);    // with capacitance 1.0 pF
     dacs = constrain(dacs, 0, 4095);    // keep constrain function simple
     analogWrite(dacPin, dacs);
 
