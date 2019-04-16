@@ -2,7 +2,7 @@
 
 ## A fast dynamic clamp sketch for the [pyClamp](https://github.com/christianrickert/pyClamp) interface
 
-**[dyClamp](https://github.com/christianrickert/dyClamp/)** is a further development of the [dynamic_clamp](https://github.com/nsdesai/dynamic_clamp) sketch with a focus on a robust serial communication between the Teensy and its controlling host computer: The current implementation allows scientists to alter the behavior of the dynamic clamp system at runtime - by transmitting updates for calibration parameters, conductance values or by triggering custom events. Furthermore, the low-latency design of [Teensyduino USB Serial Communication](https://www.pjrc.com/teensy/td_serial.html) enables a continuous flow of information from and to the host - with a minimal effect on the cycle times of the dynamic clamp system.
+**[dyClamp](https://github.com/christianrickert/dyClamp/)** is a further development of the [dynamic_clamp](https://github.com/nsdesai/dynamic_clamp) sketch with a focus on a robust serial communication between the Teensy and its controlling host computer: The current implementation allows scientists to alter the behavior of the dynamic clamp system at runtime - by transmitting updates for calibration parameters, conductance values or by remotely triggering custom events. Furthermore, the low-latency design of [Teensyduino USB Serial Communication](https://www.pjrc.com/teensy/td_serial.html) enables a continuous flow of information from and to the host - with a minimal effect on the cycle times of the dynamic clamp system.
 
 **_Cross-reference_:** **[pyClamp](https://github.com/christianrickert/pyClamp)** is a feature-complete graphical user interface written in Python to demonstrate the flexibility of this novel dynamic clamp implementation.
 
@@ -57,8 +57,7 @@ Besides the echo of a command string that is exclusively sent on-demand, the Tee
 /* Toggles live reports of selected values on/off that are sent to the host continuously. */
 <cr> 0.0 <tab> 2.0 <lf>
 ```
-The Teensy will then start to report data values live representing the current state of internal values.
-The transmitted data can be useful to observe parameters during experiments or to debug new current models.
+The Teensy will then start to report data values live representing the current state of internal values. The transmitted data can be useful to observe parameters during experiments or to debug new current models.
 ```
 /* Continuous stream of information from the Teensy, reporting the latest values of
    the membrane potential [mV], the injected current [pA], and the cycle time [µs]. */
