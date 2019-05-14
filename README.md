@@ -2,6 +2,8 @@
 
 ## A real-time dynamic clamp sketch for the [pyClamp](https://github.com/christianrickert/pyClamp) interface
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2824830.svg)](https://doi.org/10.5281/zenodo.2824830)
+
 **[dyClamp](https://github.com/christianrickert/dyClamp/)** is a further development of the [dynamic_clamp](https://github.com/nsdesai/dynamic_clamp) sketch with a focus on a robust serial communication between the Teensy and its controlling host computer: The current implementation allows scientists to alter the behavior of the [dynamic clamp](http://www.scholarpedia.org/article/Dynamic_clamp) system at runtime - by transmitting updates for calibration parameters, conductance values or by remotely triggering custom events. Furthermore, the low-latency design of [Teensyduino USB Serial Communication](https://www.pjrc.com/teensy/td_serial.html) enables a continuous flow of information from and to the host - with a minimal effect on the cycle times of the dynamic clamp system.
 
 **_Cross-reference_:** **[pyClamp](https://github.com/christianrickert/pyClamp)** is a feature-complete graphical user interface written in Python to demonstrate the flexibility of this novel dynamic clamp implementation.
