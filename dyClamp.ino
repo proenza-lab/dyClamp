@@ -19,7 +19,7 @@ MA 02110-1301, USA.
 
 dyClamp was partially developed at Laboratory of Catherine Proenza,
 Department of Physiology & Biophysics, University of Colorado,
-Anschutz Medical Campus.
+Anschutz Medical Campus (NIH R01-HL088427).
 
 This project is based on the original implementation for a dynamic clamp system
 by Niraj S. Desai, Richard Gray, and Daniel Johnston. For details, please visit
