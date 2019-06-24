@@ -71,7 +71,7 @@ float values[] =    {0.0,       // mvolts [mV]
                      0.0};      // msecs [µs]
 
 elapsedMicros stepTime = 0;     // individual cycle time [µs]
-elapsedMillis cmdTime = 0;      // time since alst command check [ms]
+elapsedMillis cmdTime = 0;      // time since last command check [ms]
 elapsedMillis ttlTime = 0;      // time since last TTL trigger [ms]
 
 /* serial command strings are identified by their specific format:
