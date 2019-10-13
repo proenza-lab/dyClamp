@@ -95,6 +95,8 @@ Make sure to optimize Arduino's settings and compilation parameters in order to 
 
 Depending on the computational costs of your current simulations, **[dyClamp](https://github.com/christianrickert/dyClamp/)** usually completes its cycles of voltage readout, current calculation, and current injection ("cycle time") in 10 µs or less - while at the same time enabling serial communication from and to the controlling host.
 
+The Teensy 4.0 can be used as well: However, it lacks an onboard digital-to-analog (DAC) converter. In addition, the analog-to-digital (ADC) conversion takes up to 20 µs due to changes in the default configuration for sample averaging.
+
 ## Acknowledgements
 
 I would like to thank [Cathy Proenza](http://www.ucdenver.edu/academics/colleges/medicalschool/departments/physiology/faculty/Pages/Proenza.aspx), [Niraj Desai](https://github.com/nsdesai), and [Andrew Scallon](https://optogeneticsandneuralengineeringcore.gitlab.io/ONECoreSite/) for providing ressources and valuable feedback during the development process.
