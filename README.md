@@ -99,7 +99,7 @@ The Teensy 4.0 can be used as well: However, it lacks an onboard digital-to-anal
 
 ## Acknowledgements
 
-I would like to thank [Cathy Proenza](http://www.ucdenver.edu/academics/colleges/medicalschool/departments/physiology/faculty/Pages/Proenza.aspx), [Niraj Desai](https://github.com/nsdesai), and [Andrew Scallon](https://optogeneticsandneuralengineeringcore.gitlab.io/ONECoreSite/) for providing ressources and valuable feedback during the development process.
+I would like to thank [Cathy Proenza](http://www.ucdenver.edu/academics/colleges/medicalschool/departments/physiology/faculty/Pages/Proenza.aspx), [Niraj Desai](https://github.com/nsdesai), and [Andrew Scallon](https://optogeneticsandneuralengineeringcore.gitlab.io/ONECoreSite/) for providing resources and valuable feedback during the development process.
 
 ## Development & Bug reports
 
