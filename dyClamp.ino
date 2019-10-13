@@ -253,8 +253,9 @@ void setup(){
     clearBuffers();
 
     // configure Teensy pins
-    analogReadResolution(12);   // (0-4095)
-    analogWriteResolution(12);  // (0-4095)
+    analogReadResolution(12);   // [b], (values: 8, 10, 12, 16; default: 12)
+    analogReadAveraging(4);		// [ ], (values: 0-32; default: 4)
+    analogWriteResolution(12);  // [b], (values: 12; default: 12)
     pinMode(ttlPin, INPUT);     // set to high-impedance state
 
     // pre-calculate lookup tables
