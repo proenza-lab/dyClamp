@@ -1,6 +1,6 @@
 /*
 dyClamp (dynamic clamp sketch for the pyClamp interface)
-Copyright (C) 2019 Christian Rickert <mail@crickert.de>
+Copyright (C) 2019 Christian Rickert <rc.email@icloud.com>
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
