@@ -10,7 +10,7 @@
 
 **_Cross-reference_:** **[pyClamp](https://github.com/christianrickert/pyClamp)** is a feature-complete graphical user interface written in Python to demonstrate the flexibility of this novel dynamic clamp implementation.
 
-![dyClamp_protocol](https://user-images.githubusercontent.com/19319377/120081906-2f2f3500-c07d-11eb-9086-fa1d4a4840d9.png)
+![dyClamp_protocol](https://user-images.githubusercontent.com/19319377/120081981-90570880-c07d-11eb-88b8-a7cc962c8e70.png)
 
 ## Serial communication
 
