@@ -1,6 +1,6 @@
 # dyClamp
 
-## A real-time dynamic clamp (host) controller for the [pyClamp](https://github.com/christianrickert/pyClamp) (client) interface
+## A real-time dynamic clamp (host) controller for the live [pyClamp](https://github.com/christianrickert/pyClamp) (client) interface
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2824830.svg)](https://doi.org/10.5281/zenodo.2824830)
 
